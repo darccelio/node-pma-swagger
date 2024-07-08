@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13
+    restart: on-failure
+    environment:
+      POSTGRES_DB: pma
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+    volumes:
+      - pma_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pma_data:

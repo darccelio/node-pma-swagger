@@ -1,0 +1,36 @@
+
+//--------------------- Requisições Usuario ---------------------------
+
+GET http://localhost:3000/user HTTP/1.1
+content-type: application/json
+
+####
+
+POST http://localhost:3000/user HTTP/1.1
+content-type: application/json
+
+{  
+  "first_name": "José",
+  "last_name": "Teste",
+  "password": "123456"
+}
+
+####
+
+PUT http://localhost:3000/user/3 HTTP/1.1
+content-type: application/json
+
+{  
+  "first_name": "Maria",
+  "last_name": "",
+  "password": ""
+}
+
+####
+
+DELETE  http://localhost:3000/user/3 HTTP/1.1
+content-type: application/json
+
+
+
+
