@@ -39,42 +39,23 @@ router.get(
   controller.getAll
 )
 
+router.get('/:id', 
+   /*
+    #swagger.tags = ['User']
+    #swagger.summary = 'Busca um usuário pelo Id'
+    #swagger.description = 'Endpoint que busca dados de um usuário cadastrado pelo seu id.'
+  */
+
+  controller.getById
+)
+
 router.post(
   '/',
+
   /*
     #swagger.tags = ['User']
     #swagger.summary = 'Cria um novo usuário'
     #swagger.description = 'Endpoint que cria um novo usuário'
-    #swagger.parameters['CreateUser'] = {
-      in: 'body',
-      description: 'Dados para criar um novo usuário',
-      required: true,
-      schema: {
-        $ref: '#/definitions/CreateUserInput'
-      }
-    }
-    #swagger.responses[201] = {
-      description: 'Usuário criado com sucesso',
-      schema: {
-        $ref: '#/definitions/User'
-      },
-      examples: {
-        "application/json": {
-          "id": 1,
-          "firstName": "João",
-          "lastName": "Silva",
-          "password": "password123",
-          "createdAt": "2024-07-07T20:53:14.047Z",
-          "updatedAt": "2024-07-07T20:53:14.047Z"
-        }
-      }
-    }
-    #swagger.responses[422] = {
-      description: 'Erro na requisição',
-      schema: {
-        type: 'string'
-      }
-    }
   */
 
   controller.create

@@ -11,7 +11,35 @@ async function getAll(req, res) {
   try {
     const activities = await prisma.activity.findMany()
 
-    return res.status(httpStatus.OK).send(activities)
+    const resp = {
+      status: httpStatus.OK,
+      activities,
+    }
+
+    return res.status(httpStatus.OK).json(resp)
+  } catch (err) {
+    console.log(err)
+    res.status(httpStatus.UNPROCESSABLE_ENTITY).send('Erro na requisição')
+  } finally {
+    await prisma.$disconnect()
+  }
+}
+
+async function getPorId(req, res) {
+
+  console.log(`req.params.id: ${req.params.id}`);
+  try {
+    const activity = await prisma.activity.findUnique({
+      where: { id: parseInt(req.params.id),
+      },
+    })
+
+    const resp = {
+      status: httpStatus.OK,
+      activities: activity,
+    }
+
+    return res.status(httpStatus.OK).json(resp)
   } catch (err) {
     console.log(err)
     res.status(httpStatus.UNPROCESSABLE_ENTITY).send('Erro na requisição')
@@ -111,4 +139,4 @@ async function deleteEntity(req, res) {
   }
 }
 
-module.exports = { getAll, create, update, deleteEntity }
+module.exports = { getAll, getPorId, create, update, deleteEntity }

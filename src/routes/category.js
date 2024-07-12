@@ -14,6 +14,15 @@ router.get(
   controller.getAll
 )
 
+router.get('/:id', 
+   /*
+    #swagger.tags = ['Category']
+    #swagger.summary = 'Retorna uma categoria por Id'
+    #swagger.description = 'Endpoint que busca uma categorias com base no id.'
+  */
+  
+  controller.getById)
+
 router.post(
   '/',
 

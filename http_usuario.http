@@ -6,29 +6,34 @@ content-type: application/json
 
 ####
 
+GET http://localhost:3000/user/2 HTTP/1.1
+content-type: application/json
+
+####
+
 POST http://localhost:3000/user HTTP/1.1
 content-type: application/json
 
 {  
-  "first_name": "José",
-  "last_name": "Teste",
+  "firstName": "João",
+  "lastName": "Teste",
   "password": "123456"
 }
 
 ####
 
-PUT http://localhost:3000/user/3 HTTP/1.1
+PUT http://localhost:3000/user/13 HTTP/1.1
 content-type: application/json
 
 {  
-  "first_name": "Maria",
-  "last_name": "",
-  "password": ""
+  "firstName": "",
+  "lastName": "",
+  "password": "22563"
 }
 
 ####
 
-DELETE  http://localhost:3000/user/3 HTTP/1.1
+DELETE  http://localhost:3000/user/15 HTTP/1.1
 content-type: application/json
 
 

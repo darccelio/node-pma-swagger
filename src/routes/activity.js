@@ -22,6 +22,17 @@ router.post(
   activityController.create
 )
 
+router.get(
+  '/:id',
+  /*
+    #swagger.tags = ['Activity']
+    #swagger.summary = 'Retorna uma atividade com base no seu id'
+    #swagger.description = 'Endpoint que busca uma atividade com base no seu id'
+  */
+  activityController.getPorId
+)
+
+
 router.put(
   '/:id',
   /*

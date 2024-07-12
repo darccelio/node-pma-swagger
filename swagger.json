@@ -52,6 +52,28 @@
       }
     },
     "/category/{id}": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "summary": "Retorna uma categoria por Id",
+        "description": "Endpoint que busca uma categorias com base no id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
       "put": {
         "tags": [
           "Category"
@@ -144,6 +166,28 @@
       }
     },
     "/activity/{id}": {
+      "get": {
+        "tags": [
+          "Activity"
+        ],
+        "summary": "Retorna uma atividade com base no seu id",
+        "description": "Endpoint que busca uma atividade com base no seu id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
       "put": {
         "tags": [
           "Activity"
@@ -287,75 +331,9 @@
         ],
         "summary": "Cria um novo usuário",
         "description": "Endpoint que cria um novo usuário",
-        "parameters": [
-          {
-            "name": "CreateUser",
-            "in": "body",
-            "description": "Dados para criar um novo usuário",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/CreateUserInput"
-            }
-          }
-        ],
         "responses": {
-          "201": {
-            "description": "Usuário criado com sucesso",
-            "examples": {
-              "application/json": {
-                "id": 1,
-                "firstName": "João",
-                "lastName": "Silva",
-                "password": "password123",
-                "createdAt": "2024-07-07T20:53:14.047Z",
-                "updatedAt": "2024-07-07T20:53:14.047Z"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Erro na requisição",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "string"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "example": "string"
-                    }
-                  },
-                  "xml": {
-                    "name": "main"
-                  }
-                }
-              }
-            }
+          "default": {
+            "description": ""
           }
         },
         "requestBody": {
@@ -364,10 +342,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "first_name": {
+                  "firstName": {
                     "example": "any"
                   },
-                  "last_name": {
+                  "lastName": {
                     "example": "any"
                   },
                   "password": {
@@ -381,6 +359,28 @@
       }
     },
     "/user/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Busca um usuário pelo Id",
+        "description": "Endpoint que busca dados de um usuário cadastrado pelo seu id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
       "put": {
         "tags": [
           "User"
@@ -400,6 +400,26 @@
         "responses": {
           "default": {
             "description": ""
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "example": "any"
+                  },
+                  "lastName": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       },
